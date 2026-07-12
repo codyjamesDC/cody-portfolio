@@ -1,29 +1,26 @@
 import { useState, useEffect } from 'react';
 
-export function useScrollSpy(ids: string[], offset: number = 100) {
-    const [activeId, setActiveId] = useState<string>('');
+export function useScrollSpy(sectionIds: string[], offset = 80): string {
+    const [activeId, setActiveId] = useState<string>(sectionIds[0] ?? '');
 
     useEffect(() => {
-        const listener = () => {
-            const scroll = window.scrollY;
-            
-            for (let i = ids.length - 1; i >= 0; i--) {
-                const element = document.getElementById(ids[i]);
-                if (element) {
-                    const top = element.getBoundingClientRect().top + scroll - offset;
-                    if (scroll >= top) {
-                        setActiveId(ids[i]);
-                        return;
-                    }
+        const handleScroll = () => {
+            const scrollY = window.scrollY + offset + 1;
+
+            let current = sectionIds[0] ?? '';
+            for (const id of sectionIds) {
+                const el = document.getElementById(id);
+                if (el && el.offsetTop <= scrollY) {
+                    current = id;
                 }
             }
-            setActiveId('');
+            setActiveId(current);
         };
 
-        listener();
-        window.addEventListener('scroll', listener);
-        return () => window.removeEventListener('scroll', listener);
-    }, [ids, offset]);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [sectionIds, offset]);
 
     return activeId;
 }

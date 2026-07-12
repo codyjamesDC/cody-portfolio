@@ -96,11 +96,9 @@ export function Experience() {
                                                 {role.title}
                                             </h4>
                                             <span
-                                                className="text-xs font-medium px-2.5 py-1 rounded-full flex-shrink-0"
+                                                className="text-xs font-style: italic font-medium px-2.5 py-1 rounded-full flex-shrink-0"
                                                 style={{
-                                                    background: 'rgba(107,142,35,0.1)',
-                                                    color: 'var(--color-accent)',
-                                                    border: '1px solid rgba(107,142,35,0.2)',
+                                                    color: 'var(--color-accent)'
                                                 }}
                                             >
                                                 {role.period}

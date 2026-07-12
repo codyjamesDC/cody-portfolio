@@ -196,7 +196,7 @@ export function Contact() {
               el.style.color = 'var(--color-text)';
             }}
           >
-            ↗ View CV
+            View CV
           </a>
         </div>
       </div>

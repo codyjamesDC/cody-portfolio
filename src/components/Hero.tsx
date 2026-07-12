@@ -100,7 +100,7 @@ export function Hero() {
                   boxShadow: '0 4px 20px rgba(107,142,35,0.3)',
                 }}
               >
-                View Projects →
+                View Projects
               </button>
 
               <a
@@ -123,7 +123,7 @@ export function Hero() {
                   (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-text)';
                 }}
               >
-                ↗ View CV
+                View CV
               </a>
 
               {/* Social quick-links */}

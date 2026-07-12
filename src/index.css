@@ -252,12 +252,3 @@ pre {
   color: var(--color-accent);
   margin-bottom: 0.75rem;
 }
-
-.section-label::before {
-  content: '';
-  display: block;
-  width: 1.5rem;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 1px;
-}
